@@ -8,25 +8,27 @@ import Tarsier from '../assets/Philippine Tarsier.jpg';
 import VPig from '../assets/Visayan Warty Pig.jpg';
 import PCroc from '../assets/Philippine Crocodile.jpg';
 
-
 const EndangeredSpecies = () => {
   return (
-    <div className="containerED d-flex flex-wrap vh-100 bg-transparent text-dark">
-      <h1>ENDANGERED SPECIES IN THE PHILIPPINES</h1>
-      <div className="card-container d-flex flex-wrap justify-content-between"> {/* Using justify-content: space-between for even spacing */}
-        { /* Loop through the images and create cards dynamically */}
-        {[BearCat, phorn, eagle, tama, Turtle, Tarsier, VPig, PCroc].map((imageUrl, index) => (
-          <div className="col-md-4 col-lg-3 my-2" key={index}> {/* Add key prop for better performance */}
-            <div className="card text-dark mx-auto" style={{ width: '300px', height: '550px' }}>
-              <img src={imageUrl} className="card-img-top" alt={`Endangered Species - ${getImageName(imageUrl)}`} style={{ height: '300px', objectFit: 'cover' }} />
-              <div className="card-body" style={{ overflow: 'auto' }}>
-                <h5 className="card-title">{getImageName(imageUrl)}</h5> {/* Extract image names for titles */}
-                <p className="card-text">Critically Endangered.</p>
-                <a href="#donate" className="btn btn-primary align-baseline">Donate Now</a>
+    <div className="bg-gradient-to-b from-green-400 to-green-600 min-h-screen py-8">
+      <div className="container mx-auto">
+        <h1 className="text-3xl font-bold text-center text-white mb-8">ENDANGERED SPECIES IN THE PHILIPPINES</h1>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {/* Loop through the images and create cards dynamically */}
+          {[BearCat, phorn, eagle, tama, Turtle, Tarsier, VPig, PCroc].map((imageUrl, index) => (
+            <div className="bg-green shadow-md border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700" key={index}>
+              <a href="#">
+                <img className="rounded-t-lg w-full h-40 object-cover" src={imageUrl} alt={`Endangered Species - ${getImageName(imageUrl)}`} />
+              </a>
+              <div className="p-5">
+                <a href="#">
+                  <h5 className="text-white-900 font-bold text-xl tracking-tight mb-2 dark:text-white">{getImageName(imageUrl)}</h5>
+                </a>
+                <p className="font-normal text-gray-700 mb-3 dark:text-gray-400">Critically Endangered.</p>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
